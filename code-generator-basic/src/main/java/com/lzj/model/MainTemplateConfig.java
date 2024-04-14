@@ -13,12 +13,12 @@ public class MainTemplateConfig {
     private boolean loop;
 
     /**
-     * 作者注释
+     * 作者注释，并设置默认值
      */
-    private String author;
+    private String author = "Jerry";
 
     /**
-     * 输出信息
+     * 输出信息，并设置默认值
      */
-    private String outputText;
+    private String outputText = "输出结果：";
 }
