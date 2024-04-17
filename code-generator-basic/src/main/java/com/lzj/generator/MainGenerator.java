@@ -16,7 +16,11 @@ public class MainGenerator {
 
     public static void main(String[] args) throws TemplateException, IOException {
         // 动静结合，生成静态、动态文件
-        combineGenerate();
+        MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
+        mainTemplateConfig.setAuthor("Tom");
+        mainTemplateConfig.setLoop(false);
+        mainTemplateConfig.setOutputText("Sum = ");
+        combineGenerate(mainTemplateConfig);
     }
 
     /**
@@ -24,20 +28,20 @@ public class MainGenerator {
      * @throws TemplateException
      * @throws IOException
      */
-    public static void combineGenerate() throws TemplateException, IOException {
+    public static void combineGenerate(Object model) throws TemplateException, IOException {
         String projectPath = System.getProperty("user.dir");
         // 1.静态文件生成
-        String inputPath = new File(projectPath, "code-generator-demo-projects" + File.separator + "acm-template").getAbsolutePath();System.out.println();
+        File parentFile = new File(projectPath).getParentFile();
+        String inputPath = new File(parentFile, "code-generator-demo-projects" + File.separator + "acm-template").getAbsolutePath();
         String outputPath = projectPath;
+        System.out.println("静态文件 - 输入路径：" + inputPath);
+        System.out.println("静态文件 - 输出路径：" + outputPath);
         StaticGenerator.copyFilesByRecursive(inputPath, outputPath);
         // 2.动态文件生成
-        String inputDynamicFilePath = projectPath + File.separator + "code-generator-basic/src/main/resources/template/mainTemplate.java.ftl";
+        String inputDynamicFilePath = projectPath + File.separator + "src/main/resources/template/mainTemplate.java.ftl";
         String outputDynamicFilePath = projectPath + File.separator + "acm-template/src/com/lzj/acm/MainTemplate.java";
-        // 数据模型
-        MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
-        mainTemplateConfig.setAuthor("Tom");
-        mainTemplateConfig.setLoop(false);
-        mainTemplateConfig.setOutputText("Sum = ");
-        DynamicGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, mainTemplateConfig);
+        System.out.println("动态文件 - 模板文件位置：" + inputDynamicFilePath);
+        System.out.println("动态文件 - 目标文件位置：" + outputDynamicFilePath);
+        DynamicGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
     }
 }

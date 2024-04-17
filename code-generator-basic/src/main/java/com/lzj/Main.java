@@ -1,15 +1,19 @@
 package com.lzj;
 
+import com.lzj.cli.CommandExecutor;
+
 /**
- * @Auther: lzj
- * @Date: 2024/4/11-04-11-11:19
- * @Description: com.lzj
+ *  全局调用入口
  */
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("code-generator-basic,项目初始化完成！！！");
+        args = new String[] {"generate", "-l", "-a", "-o"};
+        //args = new String[] {"config"};
+        //args = new String[] {"list"};
+        CommandExecutor commandExecutor = new CommandExecutor();
+        commandExecutor.doExecute(args);
     }
 
 }

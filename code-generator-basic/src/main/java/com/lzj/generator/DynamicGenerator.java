@@ -18,8 +18,10 @@ public class DynamicGenerator {
 
     public static void main(String[] args) throws IOException, TemplateException {
         // todo 获取到的路径不一致
-        String projectPath = System.getProperty("user.dir") + File.separator + "code-generator-basic";
+        //String projectPath = System.getProperty("user.dir") + File.separator + "code-generator-basic";
+        String projectPath = System.getProperty("user.dir");
         String inputPath = projectPath + File.separator + "src/main/resources/template/mainTemplate.java.ftl";
+        System.out.println("inputPath: " + inputPath);
         String outputPath = projectPath + File.separator + "MainTemplate.java";
 
         MainTemplateConfig mainTemplateConfig = new MainTemplateConfig();
