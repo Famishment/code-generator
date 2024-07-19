@@ -33,16 +33,16 @@ class SubCommandExample implements Runnable {
 
     @Override
     public void run() {
-
+        System.out.println("执行主命令");
     }
 
     public static void main(String[] args) {
         // 执行主命令
         //String[] myArgs = new String[] {};
         // 查看主命令的帮助手册
-        String[] myArgs = new String[] {"--help"};
+        //String[] myArgs = new String[] {"--help"};
         // 执行增加命令
-        //String[] myArgs = new String[] {"add"};
+        String[] myArgs = new String[] {"query"};
         // 执行增加命令的帮助手册
         //String[] myArgs = new String[] {"add", "--help"};
         // 执行不存在的命令，会报错

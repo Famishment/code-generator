@@ -2,7 +2,6 @@ package com.lzj.generator;
 
 import com.lzj.model.MainTemplateConfig;
 import freemarker.template.TemplateException;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -29,7 +28,26 @@ public class MainGenerator {
      * @throws IOException
      */
     public static void combineGenerate(Object model) throws TemplateException, IOException {
-        String projectPath = System.getProperty("user.dir");
+
+        String inputRootPath = "E:\\PlanetProject\\code-generator\\code-generator-demo-projects\\acm-template-pro";
+        String outputRootPath = "E:\\PlanetProject\\code-generator";
+
+        String inputPath;
+        String outputPath;
+
+        inputPath = new File(inputRootPath, "src/com/lzj/acm/MainTemplate.java.ftl").getAbsolutePath();
+        outputPath = new File(outputRootPath, "src/com/lzj/acm/MainTemplate.java").getAbsolutePath();
+        DynamicGenerator.doGenerate(inputPath, outputPath, model);
+
+        inputPath = new File(inputRootPath, ".gitignore").getAbsolutePath();
+        outputPath = new File(outputRootPath, ".gitignore").getAbsolutePath();
+        StaticGenerator.copyFilesByRecursive(inputPath, outputPath);
+
+        inputPath = new File(inputRootPath, "README.md").getAbsolutePath();
+        outputPath = new File(outputRootPath, "README.md").getAbsolutePath();
+        StaticGenerator.copyFilesByRecursive(inputPath, outputPath);
+
+        /*String projectPath = System.getProperty("user.dir");
         // 1.静态文件生成
         File parentFile = new File(projectPath).getParentFile();
         String inputPath = new File(parentFile, "code-generator-demo-projects" + File.separator + "acm-template").getAbsolutePath();
@@ -42,6 +60,6 @@ public class MainGenerator {
         String outputDynamicFilePath = projectPath + File.separator + "acm-template/src/com/lzj/acm/MainTemplate.java";
         System.out.println("动态文件 - 模板文件位置：" + inputDynamicFilePath);
         System.out.println("动态文件 - 目标文件位置：" + outputDynamicFilePath);
-        DynamicGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);
+        DynamicGenerator.doGenerate(inputDynamicFilePath, outputDynamicFilePath, model);*/
     }
 }

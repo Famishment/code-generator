@@ -21,7 +21,7 @@ class Login implements Callable<Integer> {
     }
 
     public static void main(String[] args) {
-        //new CommandLine(new Login()).execute("-u", "user123", "-p", "xxx", "-cp");
-        new CommandLine(new Login()).execute("-u", "user123");
+        new CommandLine(new Login()).execute("-u", "user123", "-p", "xxx", "-cp");
+        //new CommandLine(new Login()).execute("-u", "user123", "-p", "-cp");
     }
 }

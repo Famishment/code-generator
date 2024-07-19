@@ -1,6 +1,6 @@
-package com.lzj;
+package com.lzj.maker;
 
-import com.lzj.cli.CommandExecutor;
+//import com.lzj.maker.cli.CommandExecutor;
 
 /**
  *  全局调用入口
@@ -12,8 +12,8 @@ public class Main {
         //args = new String[] {"generate", "-l", "-a", "-o"};
         //args = new String[] {"config"};
         //args = new String[] {"list"};
-        CommandExecutor commandExecutor = new CommandExecutor();
-        commandExecutor.doExecute(args);
+        /*CommandExecutor commandExecutor = new CommandExecutor();
+        commandExecutor.doExecute(args);*/
     }
 
 }
