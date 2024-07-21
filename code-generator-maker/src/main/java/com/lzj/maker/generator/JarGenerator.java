@@ -33,8 +33,8 @@ public class JarGenerator {
         System.out.println("命令执行结束，退出码：" + exitCode);
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    /*public static void main(String[] args) throws IOException, InterruptedException {
         doGenerate("E:\\PlanetProject\\code-generator\\code-generator-basic");
-    }
+    }*/
 
 }

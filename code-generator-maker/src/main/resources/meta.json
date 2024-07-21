@@ -6,8 +6,9 @@
   "author": "lizj",
   "createTime": "2024-06-18",
   "fileConfig": {
-    "inputRootPath": "E:/PlanetProject/code-generator/code-generator-demo-projects/acm-template-pro",
+    "inputRootPath": ".source/acm-template-pro",
     "outputRootPath": "E:/PlanetProject/code-generator/generated",
+    "sourceRootPath":  "E:/PlanetProject/code-generator/code-generator-demo-projects/acm-template-pro",
     "type": "dir",
     "files": [
       {
